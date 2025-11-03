@@ -8,33 +8,31 @@
 # media de cada estudiante. También puedes usar otro bucle para calcular la nota media de toda la
 # clase. 
 
-# Lista de los alumnos junto con las siguientes notas 
-# ("Nombre Alumno", deberes, examenes, proyectos)
-alumnos = [
-    ["Aitor",8,5,5],
-    ["Maria",10,10,10],
-    ["Diego",4,6,6],
-    ["Nerea",4,4,1]
-]
+# Lista de los estudiantes
+alumnos = ["Aitor","Maria","Diego","Nerea"]
+# Lista para guardar los datos de los alumnos junto con sus notas
+Base_Datos = []
 
-# Bucle para la recopilación de las notas 
-for datos in alumnos:
-    nombre = datos[0]
-    deberes = datos[1]
-    examen = datos[2]
-    proyecto = datos[3]
-    print(f"Nombre del alumno:{nombre}")
-    print(f"Nota de los deberes:{deberes}")
-    print(f"Nota del examen:{examen}")
-    print(f"Nota del proyecto:{proyecto}")
+# Bucle para preguntar las notas que han sacado
+for alumno in alumnos:
+    # Por cada estudiante preguntaremos sus notas correspondientes a las diferentes tareas
+    print(f"Estudiante {alumno}")
+    deberes = float(input("Nota de los deberes: "))
+    examen = float(input("Nota del examen: "))
+    proyecto = float(input("Nota del proyecto: "))
+    # Nueva lista para guardar los datos del alumno junto con sus notas
+    Datos_Alumno = [alumno,deberes,examen,proyecto]
+    # Lista para añadir a los alumnos junto con sus notas
+    Base_Datos.append(Datos_Alumno)
+    # Salto de linea
     print("")
 
 # Salto de linea
 print("")
 
-# Bucle para calcular la nota final
-for alumno in alumnos:
-    nombre = alumno[0]
-    notas = alumno[1:]
+# Bucle para calcular la media de cada alumno
+for nota_final in Base_Datos:
+    estudiante = nota_final[0]
+    notas = nota_final[1:]
     media = sum(notas) / len(notas)
-    print(f"Nota final de {nombre}:",round(media,2))
+    print(f"Nota final del estudiante {estudiante}:",round(media,2))
