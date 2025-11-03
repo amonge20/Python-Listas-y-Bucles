@@ -15,4 +15,30 @@
 # 2. Desarrolla ahora un script que compare dos cadenas de caracteres y nos diga si una de ellas
 # esta codificación ROT13 de la otra. 
 
-# 
+# Introducimos la palabra que queremos escribir 
+palabra_introducida = input("Introduce un texto: ")
+
+# Creamos una lista vacia para guardar el resultado
+Palabra_Normal = []
+
+# El alfabeto
+alfabeto_minus = list("abcdefghijklmnopqrstuvwxyz")
+alfabeto_mayus = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+# Recorremos un bucle para descifrar el texto codificado de nuestra lista
+for c in palabra_introducida:
+    if c in alfabeto_minus:
+        # Buscar índice y rotar 13 posiciones
+        nueva_pos = (alfabeto_minus.index(c) + 13) % 26
+        Palabra_Normal.append(alfabeto_minus[nueva_pos])
+    elif c in alfabeto_mayus:
+        nueva_pos = (alfabeto_mayus.index(c) + 13) % 26
+        Palabra_Normal.append(alfabeto_mayus[nueva_pos])
+    else:
+        Palabra_Normal.append(c)
+
+# Unimos la lista en un string
+descifrado = "".join(Palabra_Normal)
+
+# Resultado final
+print(descifrado)
