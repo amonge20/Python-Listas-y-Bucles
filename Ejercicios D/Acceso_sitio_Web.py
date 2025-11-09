@@ -12,3 +12,30 @@
 # Pista 2: Para verificar si el usuario y contraseña son correctos puedes crear un bucle donde
 # recorras los nombres de usuario y compruebes con un if si el nombre de usuario introducido y la
 # contraseña coinciden con los datos de tus listas. 
+
+# Lista de usuarios y contraseñas
+usuarios = ["aitor","monge","santiago"]
+contrasenas = ["aitor123","monge456","santiago789"]
+
+# Recorremos un bucle para coincidir usuario y contraseña
+acceso_permitido = False
+
+while not acceso_permitido:
+    # Preguntamos las credenciales al usuario
+    acceso_usuario = input("Introduce usuario: ")
+    acceso_contrasena = input("Introduce la contraseña: ")
+
+    # Variable de que si hay coincidencias
+    encontrado = False
+
+    for i in range(len(usuarios)):
+        # Si el usuario o contraseña coincide
+        if acceso_usuario == usuarios[i] and acceso_contrasena == contrasenas[i]: 
+            print(f"Bienvenido {acceso_usuario}")
+            acceso_permitido = True
+            encontrado = True
+            break # Salimos del bucle
+
+    # Si no coincide
+    if not encontrado:    
+        print("Usuario o contraseña incorrecta. Intentalo de nuevo")
